@@ -16,13 +16,19 @@ public class DemoClient
             
             String name = "Demo";
             NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
-            demo demoRef = demoHelper.narrow(ncRef.resolve_str(name));
+            DemoRandom demoRef = DemoRandomHelper.narrow(ncRef.resolve_str(name));
             
-            for(int i=1; i<6;i++){
-                System.out.println(random);
+            for(int i=1; i<6; i++){
+                System.out.println(i+".  Value is "+random);
             }
             
             random = demoRef.getRandom();
+            int j=6;
+            System.out.println("Call to Server...");
+            while(j<11){
+                System.out.println(j+".  Value is "+random);
+                j++;
+            }
             
         }catch(Exception e){
             e.printStackTrace();

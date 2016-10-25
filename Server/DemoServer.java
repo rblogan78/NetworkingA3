@@ -17,10 +17,10 @@ public class DemoServer
 			POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
 			rootpoa.the_POAManager().activate();
 
-            demoImpl demo = new demoImpl();
+            RandomImpl demo = new RandomImpl();
       		demo.setORB(orb);
-            org.omg.CORBA.Object ref = rootpoa.servant_to_reference(demoImpl);
-      	    demo href = demoHelper.narrow(ref);
+            org.omg.CORBA.Object ref = rootpoa.servant_to_reference(demo);
+      	    DemoRandom href = DemoRandomHelper.narrow(ref);
             org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
@@ -31,12 +31,12 @@ public class DemoServer
             orb.run();
         
         }catch(Exception e){
-            e.printStacktrace();
+            e.printStackTrace();
         }
     }
 }
 
-class DemoImpl extends demoPOA{
+class RandomImpl extends DemoRandomPOA{
 
     private ORB orb;
 
@@ -48,8 +48,8 @@ class DemoImpl extends demoPOA{
         Random r = new Random();
 
         String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String rand = alphabet.charAt(r.nextInt(alphabet.length()));
-        
+        char randomChar = alphabet.charAt(r.nextInt(alphabet.length()));
+        String rand = Character.toString(randomChar);
         return rand;
     }
   

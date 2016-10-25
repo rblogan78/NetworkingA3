@@ -1,6 +1,6 @@
 module demoApp
 {
-    interface Random
+    interface DemoRandom
     {
         string getRandom();
     };
