@@ -1,0 +1,7 @@
+module demoApp
+{
+    interface Random
+    {
+        string getRandom();
+    };
+};
