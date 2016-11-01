@@ -43,14 +43,28 @@ class RandomImpl extends DemoRandomPOA{
     public void setORB(ORB orb_val){
         orb = orb_val;
     }
-  
+    
     public String getRandom(){
         Random r = new Random();
 
         String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         char randomChar = alphabet.charAt(r.nextInt(alphabet.length()));
         String rand = Character.toString(randomChar);
+        //wait a random number of seconds before returning
+        try{
+            this.randomWait();
+        }catch(InterruptedException e){
+            e.printStackTrace();
+        }
         return rand;
+    }
+
+    private void randomWait() throws InterruptedException{
+        Random rInt = new Random();
+        int low = 5000;
+        int high = 10000;
+        int result = rInt.nextInt(high-low) + low;
+        Thread.sleep(result);
     }
   
     public void shutdown(){

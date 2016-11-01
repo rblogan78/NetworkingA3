@@ -7,7 +7,7 @@ public class DemoClient
 {
     private static String random = "*";
     private static int counter = 1;
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     { 
         try
         {
@@ -21,18 +21,19 @@ public class DemoClient
             while (counter<6){
                 long inc = 0;
                 System.out.println(counter+".  Value is "+random);
-                for(int j=1;j<200000;j++){
-                    for(int l=1;l<200000;l++){
-                        inc++;
-                    }
-                }
+                //for(int j=1;j<200000;j++){
+                //    for(int l=1;l<200000;l++){
+                //        inc++;
+                //    }
+                //}
+                Thread.sleep(1000);
                 counter++;
             }
-            
-            random = demoRef.getRandom();
             System.out.println("Call to Server...");
+            random = demoRef.getRandom();
             while(counter<11){
                 System.out.println(counter+".  Value is "+random);
+                Thread.sleep(1000);
                 counter++;
             }
             
