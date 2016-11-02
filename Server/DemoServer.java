@@ -7,6 +7,14 @@ import org.omg.PortableServer.POA;
 import java.util.Properties;
 import java.util.Random;
 
+/**
+ * This class provides the server functionalilty for interraction with the ORB
+ * The RandomImpl class selects a random char from upper/lower case alphabet
+ * and returns the string to the caller. The  code includes a random wait between
+ * 5 and 15 seconds to simulate server load.
+ * 
+ * @author Robert Logan - c3165020
+ */ 
 public class DemoServer
 {
     public static void main(String[] args)
@@ -50,7 +58,6 @@ class RandomImpl extends DemoRandomPOA{
         String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         char randomChar = alphabet.charAt(r.nextInt(alphabet.length()));
         String rand = Character.toString(randomChar);
-        //wait a random number of seconds before returning
         try{
             this.randomWait();
         }catch(InterruptedException e){

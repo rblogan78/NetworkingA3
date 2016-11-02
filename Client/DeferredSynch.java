@@ -3,6 +3,14 @@ import org.omg.CosNaming.*;
 import org.omg.CosNaming.NamingContextPackage.*;
 import org.omg.CORBA.*;
 
+/**
+ * This class implements the logic for deferred synchronous server interaction.
+ * A thread is created to call the server and block allowing the client to
+ * continue processing for a finite amount of time. After that time and once
+ * the thread dies, a call is made to the thread object for the result.
+ * 
+ * @author Robert Logan - c3165020
+ */ 
 public class DeferredSynch{
     private org.omg.CORBA.Object synchObj;
     private String name = "";

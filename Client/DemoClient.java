@@ -3,6 +3,12 @@ import org.omg.CosNaming.*;
 import org.omg.CosNaming.NamingContextPackage.*;
 import org.omg.CORBA.*;
 
+/**
+ * This is the main class of the program and calls sequentially each helper
+ * class to run the logic for the three different types of server interation.
+ * 
+ * @author Robert Logan - c3165020
+ */ 
 public class DemoClient
 {
     public static void main(String[] args)

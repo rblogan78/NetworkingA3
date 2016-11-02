@@ -3,6 +3,13 @@ import org.omg.CosNaming.*;
 import org.omg.CosNaming.NamingContextPackage.*;
 import org.omg.CORBA.*;
 
+/**
+ * This class implements the logic for a synchronous interaction with the server.
+ * The server is called via the orb and the client blocks waiting for reply.
+ * Once received, the client continues processing.
+ * 
+ * @author Robert Logan - c3165020
+ */ 
 public class Synchro{
     private org.omg.CORBA.Object synchObj;
     private String name = "";
