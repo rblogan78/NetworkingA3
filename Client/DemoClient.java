@@ -19,6 +19,11 @@ public class DemoClient
             
             DeferredSynch ds = new DeferredSynch(objRef, "Demo");
             ds.defSynchronous();
+
+            System.out.println("");
+
+            ASynch as = new ASynch(objRef, "Demo");
+            as.asynchronous();
             
         }catch(Exception e){
             e.printStackTrace();

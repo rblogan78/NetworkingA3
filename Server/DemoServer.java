@@ -62,9 +62,9 @@ class RandomImpl extends DemoRandomPOA{
     private void randomWait() throws InterruptedException{
         Random rInt = new Random();
         int low = 5000;
-        int high = 10000;
+        int high = 15000;
         int result = rInt.nextInt(high-low) + low;
-        Thread.sleep(result);
+        Thread.sleep(result);//sleeps for a random period of time between 5 and 15 seconds
     }
   
     public void shutdown(){
